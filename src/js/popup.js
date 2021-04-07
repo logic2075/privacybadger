@@ -200,6 +200,9 @@ function init() {
   $('#expand-firstparty-popup').on('click', showFirstPartyInfoHandler);
   $('#collapse-firstparty-popup').on('click', hideFirstPartyInfoHandler);
 
+  $('#expand-widget-resources').on('click', showWidgetHandler);
+  $('#collapse-widget-resources').on('click', hideWidgetHandler);
+
   if (POPUP_DATA.showExpandedTrackingSection) {
     $('#expand-blocked-resources').hide();
     $('#collapse-blocked-resources').show();
@@ -212,6 +215,9 @@ function init() {
 
   $('#instructions-firstparty-description').hide();
   $('#collapse-firstparty-popup').hide();
+
+  $('#widget-menu-section').hide();
+  $('#collapse-widget-resources').hide();
 
   // check if any firstparty scripts are run on current tab & show message in popup
   async function fetchFirstPartiesManifest() {
@@ -510,6 +516,20 @@ function hideFirstPartyInfoHandler() {
   $("#collapse-firstparty-popup").hide();
   $("#expand-firstparty-popup").show();
   $("#instructions-firstparty-description").hide();
+}
+/**
+ * Click handlers for showing/hiding the widgets popup info text
+ */
+function showWidgetHandler() {
+  $("#collapse-widget-resources").show();
+  $("#expand-widget-resources").hide();
+  $("#widget-menu-section").show();
+}
+
+function hideWidgetHandler() {
+  $("#collapse-widget-resources").hide();
+  $("#expand-widget-resources").show();
+  $("#widget-menu-section").hide();
 }
 
 /**
